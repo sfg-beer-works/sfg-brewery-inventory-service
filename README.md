@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/sfg-beer-works/sfg-brewery-inventory-service.svg?style=svg)](https://circleci.com/gh/sfg-beer-works/sfg-brewery-inventory-service)
+
 # SFG Brewery Inventory Service
 
 Source code in this repository is to support my online courses.
