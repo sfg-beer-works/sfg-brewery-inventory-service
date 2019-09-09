@@ -1,8 +1,9 @@
 package guru.sfg.brewery.inventory_service.listeners;
 
-import guru.sfg.brewery.beer_service.events.NewInventoryEvent;
+import guru.sfg.brewery.inventory_service.config.JmsConfig;
 import guru.sfg.brewery.inventory_service.domain.BeerInventory;
 import guru.sfg.brewery.inventory_service.repositories.BeerInventoryRepository;
+import guru.sfg.brewery.model.events.NewInventoryEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jms.annotation.JmsListener;
@@ -18,7 +19,7 @@ public class NewInventoryListener {
 
     private final BeerInventoryRepository beerInventoryRepository;
 
-    @JmsListener(destination = "new-inventory")
+    @JmsListener(destination = JmsConfig.NEW_INVENTORY_QUEUE)
     public void listen(NewInventoryEvent event){
         log.debug(event.toString());
 

@@ -15,7 +15,7 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package guru.sfg.brewery.beer_service.events;
+package guru.sfg.brewery.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,49 +25,43 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
-import java.io.Serializable;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BeerDto implements Serializable {
-
-    static final long serialVersionUID = -937389939645639188L;
+public class BeerOrderDto {
 
     @Null
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private UUID id = null;
 
     @Null
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Integer version = null;
 
     @Null
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ", shape=JsonFormat.Shape.STRING)
-    @JsonProperty("createdDate")
     private OffsetDateTime createdDate = null;
 
     @Null
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ", shape=JsonFormat.Shape.STRING)
     private OffsetDateTime lastModifiedDate = null;
 
     @NotBlank
-    private String beerName;
+    private UUID customerId;
 
-    @NotNull
-    private String beerStyle;
+    private String customerRef;
+    private List<BeerOrderLineDto> beerOrderLines;
 
-    @NotNull
-    private String upc;
-
-    private Integer quantityOnHand;
-
-    @NotNull
-    @JsonFormat(shape= JsonFormat.Shape.STRING)
-    private BigDecimal price;
-
+    @Null
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private String orderStatus;
+    private String orderStatusCallbackUrl;
 }
