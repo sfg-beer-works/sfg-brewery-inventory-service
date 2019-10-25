@@ -4,9 +4,9 @@ LABEL PROJECT_NAME=brewery-inventory-service \
       PROJECT=${project.id}
 
 ENV SFG_SLEEP=5
-ENV SERVER_PORT=8080
+ENV SERVER_PORT=8082
 
-EXPOSE 8080
+EXPOSE 8082
 
 VOLUME /tmp
 ADD maven/${project.build.finalName}.jar ${project.build.finalName}.jar
