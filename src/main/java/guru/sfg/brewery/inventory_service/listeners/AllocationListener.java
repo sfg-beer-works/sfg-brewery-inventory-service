@@ -24,20 +24,20 @@ public class AllocationListener {
     @JmsListener(destination = JmsConfig.ALLOCATE_ORDER_QUEUE)
     public void listen(AllocateBeerOrderRequest request){
         AllocateBeerOrderResult.AllocateBeerOrderResultBuilder builder = AllocateBeerOrderResult.builder();
-        builder.beerOrderId(request.getBeerOrder().getId());
+        builder.beerOrderDto(request.getBeerOrder());
 
         try {
             Boolean allocationResult = allocationService.allocateOrder(request.getBeerOrder());
 
             if (allocationResult){
-                builder.allocated(true).pendingInventory(false);
+                builder.pendingInventory(false);
             } else {
-                builder.allocated(false).pendingInventory(true);
+                builder.pendingInventory(true);
             }
 
         } catch (Exception e) {
             //some error occured
-            builder.allocated(false).pendingInventory(false);
+            builder.allocationError(true).pendingInventory(false);
             log.error("Allocation attempt failed for order id " + request.getBeerOrder().getId(), e);
         }
 

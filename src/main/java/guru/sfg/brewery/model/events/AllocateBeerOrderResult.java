@@ -1,11 +1,10 @@
 package guru.sfg.brewery.model.events;
 
+import guru.sfg.brewery.model.BeerOrderDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.UUID;
 
 /**
  * Created by jt on 2019-09-09.
@@ -15,7 +14,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class AllocateBeerOrderResult {
-    private UUID beerOrderId;
-    private Boolean allocated;
+    private BeerOrderDto beerOrderDto;
+    private Boolean allocationError = false;
     private Boolean pendingInventory = false;
 }
