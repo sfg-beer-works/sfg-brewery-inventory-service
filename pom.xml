@@ -27,7 +27,7 @@
     </parent>
 
     <artifactId>sfg-brewery-inventory-service</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <name>SFG Brewery Inventory Service</name>
 
