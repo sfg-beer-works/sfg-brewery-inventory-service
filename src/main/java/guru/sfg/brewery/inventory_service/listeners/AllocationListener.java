@@ -23,6 +23,8 @@ public class AllocationListener {
 
     @JmsListener(destination = JmsConfig.ALLOCATE_ORDER_QUEUE)
     public void listen(AllocateBeerOrderRequest request){
+        log.debug("Allocating Order: " + request.getBeerOrder().getId());
+
         AllocateBeerOrderResult.AllocateBeerOrderResultBuilder builder = AllocateBeerOrderResult.builder();
         builder.beerOrderDto(request.getBeerOrder());
 
