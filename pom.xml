@@ -25,7 +25,7 @@
     </parent>
 
     <artifactId>sfg-brewery-inventory-service</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6-SNAPSHOT</version>
 
     <name>SFG Brewery Inventory Service</name>
 
@@ -42,6 +42,6 @@
         <connection>scm:git:git@github.com:sfg-beer-works/sfg-brewery-inventory-service.git</connection>
         <developerConnection>scm:git:git@github.com:sfg-beer-works/sfg-brewery-inventory-service.git</developerConnection>
         <url>https://github.com/sfg-beer-works/sfg-brewery-inventory-service</url>
-        <tag>sfg-brewery-inventory-service-1.0.5</tag>
+        <tag>HEAD</tag>
     </scm>
 </project>
